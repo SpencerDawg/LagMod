@@ -14,7 +14,6 @@ using Terraria.ModLoader;
 
 namespace LagMod
 {
-	// Please read https://github.com/tModLoader/tModLoader/wiki/Basic-tModLoader-Modding-Guide#mod-skeleton-contents for more information about the various files in a mod.
 	public class LagMod : Mod
 	{
 
@@ -68,16 +67,12 @@ namespace LagMod
 			if (lagSpike && Main.rand.NextBool(10))
 			{
 				// Randomly adjust the screen position to create a lag effect
-				// This is just an example, you can modify it to create different effects
 				Main.screenPosition += new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-3, 4));
 			}
 			else if (lagSpike && Main.rand.NextBool(100))
 			{
 				// Randomly adjust the screen position to create a lag effect
-				// This is just an example, you can modify it to create different effects
-				{
 					Main.screenPosition += new Vector2(Main.rand.Next(-10, 11), Main.rand.Next(-10, 11));
-				}
 			}
 		}
 
