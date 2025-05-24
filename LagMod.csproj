@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- Import tModLoader mod properties -->
+	<Import Project="..\tModLoader.targets" />
+
+	<!-- General -->
+	<PropertyGroup>
+		
+	</PropertyGroup>
+
+	<!-- References -->
+	<ItemGroup>
+		
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Krafs.Publicizer" Version="2.3.0">
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	    <PrivateAssets>all</PrivateAssets>
+	  </PackageReference>
+	</ItemGroup>
+
+	    <Target Name="RemoveIgnoresAccessChecksToAttributeCs" AfterTargets="PublicizeAssemblies">
+        <ItemGroup>
+            <FilesToRemove Include="@(Compile)" Condition="'%(Filename)' == 'IgnoresAccessChecksToAttribute'"/>
+        </ItemGroup>
+        <ItemGroup>
+            <Compile Remove="@(FilesToRemove)"/>
+        </ItemGroup>
+    </Target>
+
+    <ItemGroup Label="Publicized assemblies">
+        <!-- It's reasonable to publicize tModLoader.  Don't include
+             compiler-generated members since it breaks events and some other
+             stuff. -->
+        <Publicize Include="tModLoader" IncludeCompilerGeneratedMembers="false" IncludeVirtualMembers="false"/>
+		<Publicize Include="FNA" />
+        <Publicize Include="ReLogic" />
+    </ItemGroup>
+</Project>
