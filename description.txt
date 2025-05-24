@@ -1,2 +1,0 @@
-A mod that simulates your game having some persistent lag. Slight screen jitters, lag spikes, and all. Meant for testing mods, but i'd like to see you try to use it for fun!
-It automatically undoes any lag effects when you are not in a world.
