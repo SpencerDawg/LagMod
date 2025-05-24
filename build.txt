@@ -1,0 +1,3 @@
+displayName = Echo of a Cadaver CPU
+author = dreitone
+version = 1.0
